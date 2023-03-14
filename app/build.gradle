@@ -51,16 +51,18 @@ android {
         create("sit") {
             buildConfigField("String", "BASE_URL","\"https://api.github.com/\"")
             resValue("string", "app_name", "Github Case Test")
-            buildConfigField("String", "TOKEN", "\"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\"")
+            buildConfigField("String", "TOKEN", "\"GITHUB TOKEN\"")
             versionCode = 1
             versionName = "1.0.0"
         }
         create("prod") {
             buildConfigField("String", "BASE_URL","\"https://api.github.com/\"")
             resValue("string", "app_name", "Github Case")
-            buildConfigField("String", "TOKEN", "\"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\"")
+            buildConfigField("String", "TOKEN", "\"GITHUB TOKEN\"")
             versionCode = 1
             versionName = "1.0.0"
+
+
         }
     }
     compileOptions {
@@ -91,6 +93,8 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+    implementation 'com.github.bumptech.glide:glide:4.15.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
 
 
 }

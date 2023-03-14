@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.harunkor.githubapisampleproject.domain.model.user.User" />
+
+        <variable
+            name="clickListener"
+            type="com.harunkor.githubapisampleproject.utils.ClickListener.ItemClickListener" />
+
+        <variable
+            name="adapter"
+            type="com.harunkor.githubapisampleproject.presentation.base.BaseRecyclerAdapter" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/avatar_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:placeHolder="@{@drawable/avatar_icon}"
+            app:srcUrl="@{item.avatarUrl}"
+            app:shapeAppearanceOverlay="@style/CircleImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/avatar_icon"/>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="10dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/avatar_icon"
+            app:layout_constraintTop_toBottomOf="@+id/avatar_icon" />
+
+        <TextView
+            android:id="@+id/avar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@{item.login}"
+            app:layout_constraintBottom_toBottomOf="@+id/avatar_icon"
+            app:layout_constraintStart_toEndOf="@+id/avatar_icon"
+            app:layout_constraintTop_toTopOf="@+id/avatar_icon"
+            tools:text="Harun Kor" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

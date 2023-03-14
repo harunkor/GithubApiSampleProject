@@ -9,14 +9,18 @@ import androidx.fragment.app.FragmentManager
 import com.harunkor.githubapisampleproject.presentation.extension.observe
 import com.harunkor.githubapisampleproject.utils.ErrorDialog
 import com.harunkor.githubapisampleproject.utils.LoadingDialog
+import javax.inject.Inject
 
 abstract class BaseActivity <B : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity(){
+
+    @Inject
+    lateinit var destination: Destination
 
     abstract fun getLayoutId(): Int
 
     abstract fun getViewModel(): VM
 
-    val binding: B by binding(getLayoutId())
+    private val binding: B by binding(getLayoutId())
 
     private fun <T : ViewDataBinding> binding(
         @LayoutRes resId: Int
@@ -44,14 +48,14 @@ abstract class BaseActivity <B : ViewDataBinding, VM : BaseViewModel> : AppCompa
         }
     }
 
-    private fun showLoading(fm: FragmentManager) {
+    fun showLoading(fm: FragmentManager) {
         LoadingDialog().apply {
             isCancelable = true
             show(fm, LOADING)
         }
     }
 
-    private fun hideLoading(fm: FragmentManager) {
+    fun hideLoading(fm: FragmentManager) {
         fm.fragments.filterIsInstance<LoadingDialog>().forEach {
             it.dismiss()
         }

@@ -2,7 +2,6 @@ package com.harunkor.githubapisampleproject.domain.repository.user
 
 import com.harunkor.githubapisampleproject.data.remote.ApiService
 import com.harunkor.githubapisampleproject.di.IoDispatcher
-import com.harunkor.githubapisampleproject.domain.model.base.ApiResponse
 import com.harunkor.githubapisampleproject.domain.model.user.SearchUser
 import com.harunkor.githubapisampleproject.domain.model.user.User
 import kotlinx.coroutines.CoroutineDispatcher
@@ -19,7 +18,7 @@ class UserRepository @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) {
 
-    fun getUserList(): Flow<Response<List<User>>> {
+    fun getUserList(): Flow<Response<MutableList<User>>> {
         return flow {
             val result = apiService.getUserList()
             emit(result)

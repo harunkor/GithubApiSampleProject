@@ -14,8 +14,8 @@ class UserViewModel @Inject constructor(
     private val userRepository: UserRepository
 ): BaseViewModel() {
 
-    private val _userList: MutableLiveData<List<User>?> = MutableLiveData()
-    val userList: LiveData<List<User>?> = _userList
+    private val _userList: MutableLiveData<MutableList<User>?> = MutableLiveData()
+    val userList: LiveData<MutableList<User>?> = _userList
 
     private val _detailUser: MutableLiveData<User?> = MutableLiveData()
     val detailUser: LiveData<User?> = _detailUser

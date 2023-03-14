@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.harunkor.githubapisampleproject.databinding.ActivityMainBinding
 import com.harunkor.githubapisampleproject.presentation.base.BaseActivity
-import com.harunkor.githubapisampleproject.presentation.extension.observe
 import com.harunkor.githubapisampleproject.presentation.user.UserViewModel
+import com.harunkor.githubapisampleproject.presentation.user.UsersFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,16 +19,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, UserViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        userViewModel.getDetailUser("harunkor")
-        initObserver()
-    }
 
-    private fun initObserver() = with(userViewModel) {
-
-        observe(detailUser){
-            binding.textt.text = it.toString()
-        }
+        destination.directionUserFragment(supportFragmentManager, UsersFragment())
 
     }
+
+
 
 }

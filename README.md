@@ -10,7 +10,6 @@
  - Room database
  - Kotlin coroutines on Android 
  - Gson
- - Coroutines
  - DataBinding
  - LiveData
  - Flow

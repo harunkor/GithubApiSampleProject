@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.harunkor.githubapisampleproject.domain.model.user.User" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/avatar_icon"
+            android:layout_width="@dimen/_112sdp"
+            android:layout_height="@dimen/_112sdp"
+            android:layout_marginTop="@dimen/_72sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:placeHolder="@{@drawable/avatar_icon}"
+            app:shapeAppearanceOverlay="@style/CircleImage"
+            app:srcUrl="@{item.avatarUrl}"
+            tools:srcCompat="@drawable/avatar_icon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_fullname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@{item.name}"
+            style="@style/DetailTitle"
+            tools:text="HARUN KOR"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/avatar_icon" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_username"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center"
+            android:text="@{'@'+item.login}"
+            app:layout_constraintEnd_toEndOf="@+id/tv_fullname"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_fullname"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fullname"
+            tools:text="'@harunkor'" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_48sdp"
+            android:background="@color/sesecondary_100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_username">
+
+
+            <TextView
+                android:id="@+id/tv_userinfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/account_info"
+                style="@style/DetailTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@{@string/company(item.company)}"
+                tools:text="company"
+                app:layout_constraintStart_toStartOf="@+id/tv_userinfo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_userinfo" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{@string/location(item.location)}"
+                tools:text="location"
+                app:layout_constraintStart_toStartOf="@+id/tv_company"
+                app:layout_constraintTop_toBottomOf="@+id/tv_company" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{@string/email(item.email)}"
+                tools:text="email"
+                app:layout_constraintStart_toStartOf="@+id/tv_location"
+                app:layout_constraintTop_toBottomOf="@+id/tv_location" />
+
+            <TextView
+                android:id="@+id/tv_followers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{@string/followers(item.followers)}"
+                tools:text="followers"
+                app:layout_constraintStart_toStartOf="@+id/tv_email"
+                app:layout_constraintTop_toBottomOf="@+id/tv_email" />
+
+            <TextView
+                android:id="@+id/tv_following"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{@string/following(item.following)}"
+                tools:text="following"
+                app:layout_constraintStart_toStartOf="@+id/tv_followers"
+                app:layout_constraintTop_toBottomOf="@+id/tv_followers" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <CheckBox
+            android:id="@+id/favorite"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_24sdp"
+            android:button="@null"
+            android:background="@drawable/favorite"
+            android:checked="@{item.isFavorite}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</layout>

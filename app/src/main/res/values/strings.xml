@@ -1,4 +1,13 @@
 <resources>
 
     <string name="okay">OK</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="network_error_message"> nolu hata oluştu.</string>
+    <string name="account_info">Account Info</string>
+    <string name="company">Company: %1$s</string>
+    <string name="location">Location: %1$s</string>
+    <string name="email">E-mail: %1$s</string>
+    <string name="followers">Followers: %1$s</string>
+    <string name="following">Following: %1$s</string>
 </resources>

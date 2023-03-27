@@ -20,7 +20,7 @@ abstract class BaseActivity <B : ViewDataBinding, VM : BaseViewModel> : AppCompa
 
     abstract fun getViewModel(): VM
 
-    private val binding: B by binding(getLayoutId())
+    val binding: B by binding(getLayoutId())
 
     private fun <T : ViewDataBinding> binding(
         @LayoutRes resId: Int

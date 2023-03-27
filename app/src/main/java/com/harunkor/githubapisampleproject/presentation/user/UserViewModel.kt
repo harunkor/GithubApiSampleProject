@@ -24,7 +24,7 @@ class UserViewModel @Inject constructor(
     val searchUser: LiveData<SearchUser?> = _searchUser
 
     fun getUserList(){
-        launchViewModelScope(userRepository.getUserList()){ response ->
+        launchViewModelScope(userRepository.getUserList(), dismissLoading = false){ response ->
             response.body().let {
                 _userList.value = it
             }

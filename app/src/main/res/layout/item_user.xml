@@ -16,18 +16,20 @@
             name="adapter"
             type="com.harunkor.githubapisampleproject.presentation.base.BaseRecyclerAdapter" />
 
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{()->clickListener.itemClicked(item)}">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/avatar_icon"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="@dimen/_72sdp"
+            android:layout_height="@dimen/_72sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             app:placeHolder="@{@drawable/avatar_icon}"
             app:srcUrl="@{item.avatarUrl}"
             app:shapeAppearanceOverlay="@style/CircleImage"
@@ -39,22 +41,34 @@
             android:id="@+id/divider"
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/avatar_icon"
             app:layout_constraintTop_toBottomOf="@+id/avatar_icon" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/avar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@{item.login}"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@{'@'+item.login}"
             app:layout_constraintBottom_toBottomOf="@+id/avatar_icon"
             app:layout_constraintStart_toEndOf="@+id/avatar_icon"
             app:layout_constraintTop_toTopOf="@+id/avatar_icon"
             tools:text="Harun Kor" />
+
+        <CheckBox
+            android:id="@+id/favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_32sdp"
+            android:button="@drawable/favorite"
+            android:checked="@{item.isFavorite}"
+            android:enabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

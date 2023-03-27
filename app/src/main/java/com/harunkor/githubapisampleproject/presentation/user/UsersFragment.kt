@@ -1,8 +1,10 @@
 package com.harunkor.githubapisampleproject.presentation.user
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.harunkor.githubapisampleproject.R
 import com.harunkor.githubapisampleproject.databinding.FragmentUsersBinding
 import com.harunkor.githubapisampleproject.domain.model.user.User
@@ -19,7 +21,7 @@ class UsersFragment: BaseFragment<FragmentUsersBinding,UserViewModel>(),
     private val userViewModel: UserViewModel by activityViewModels()
 
     private val usersAdapter =  BaseRecyclerAdapter<ClickListener.ItemClickListener<User>,User>(
-            R.layout.item_user, this@UsersFragment
+            R.layout.item_user,this@UsersFragment
     )
 
     override fun getLayoutId() = R.layout.fragment_users
@@ -39,7 +41,12 @@ class UsersFragment: BaseFragment<FragmentUsersBinding,UserViewModel>(),
 
     private fun initObservers() = with(userViewModel) {
         observe(userList){
-            usersAdapter.setData(it)
+            usersAdapter.apply {
+                setData(it)
+            }
+
+
+
         }
     }
 
@@ -47,10 +54,9 @@ class UsersFragment: BaseFragment<FragmentUsersBinding,UserViewModel>(),
             recylerUsers.adapter = usersAdapter
     }
 
-
-
     override fun itemClicked(item: User) {
-
+        item.login?.let { destination.navigateUserListToDetail(findNavController(), it) }
     }
+
 
 }

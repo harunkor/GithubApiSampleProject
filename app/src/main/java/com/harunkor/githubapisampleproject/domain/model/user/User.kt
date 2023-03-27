@@ -1,8 +1,10 @@
 package com.harunkor.githubapisampleproject.domain.model.user
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-
+@Parcelize
 data class User(
 
     @SerializedName("login")
@@ -70,4 +72,4 @@ data class User(
     @SerializedName("updated_at")
     val updatedAt: String? = null,
     var isFavorite: Boolean = false
-)
+):Parcelable

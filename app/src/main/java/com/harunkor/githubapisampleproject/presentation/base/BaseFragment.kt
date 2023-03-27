@@ -9,8 +9,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.harunkor.githubapisampleproject.presentation.extension.observe
+import javax.inject.Inject
 
 abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment() {
+
+    @Inject
+    lateinit var destination: Destination
 
     abstract fun getLayoutId(): Int
 

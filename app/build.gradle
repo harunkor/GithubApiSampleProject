@@ -54,14 +54,14 @@ android {
         create("sit") {
             buildConfigField("String", "BASE_URL","\"https://api.github.com/\"")
             resValue("string", "app_name", "Github Case Test")
-            buildConfigField("String", "TOKEN", "\"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\"")
+            buildConfigField("String", "TOKEN", "\"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\"")
             versionCode = 1
             versionName = "1.0.0"
         }
         create("prod") {
             buildConfigField("String", "BASE_URL","\"https://api.github.com/\"")
             resValue("string", "app_name", "Github Case")
-            buildConfigField("String", "TOKEN", "\"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\"")
+            buildConfigField("String", "TOKEN", "\"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\"")
             versionCode = 1
             versionName = "1.0.0"
 

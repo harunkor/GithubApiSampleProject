@@ -8,10 +8,12 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.harunkor.githubapisampleproject.presentation.extension.observe
+import com.harunkor.githubapisampleproject.BR
+import com.harunkor.githubapisampleproject.presentation.clicklistener.BackClickListener
+import com.harunkor.githubapisampleproject.extension.observe
 import javax.inject.Inject
 
-abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment() {
+abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(), BackClickListener {
 
     @Inject
     lateinit var destination: Destination
@@ -38,6 +40,7 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
             getLayoutId(),
             container
         )
+        binding.setVariable(BR.backClickListener, this@BaseFragment)
 
         observe(getViewModel().showProgressLiveData) {
             if (it) {
@@ -48,6 +51,10 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
         }
 
         return binding.root
+    }
+
+    override fun backButtonClick() {
+       requireActivity().onBackPressedDispatcher.onBackPressed()
     }
 
 }

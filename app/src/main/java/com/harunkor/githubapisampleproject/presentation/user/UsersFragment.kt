@@ -10,7 +10,7 @@ import com.harunkor.githubapisampleproject.databinding.FragmentUsersBinding
 import com.harunkor.githubapisampleproject.domain.model.user.User
 import com.harunkor.githubapisampleproject.presentation.base.BaseFragment
 import com.harunkor.githubapisampleproject.presentation.base.BaseRecyclerAdapter
-import com.harunkor.githubapisampleproject.presentation.extension.observe
+import com.harunkor.githubapisampleproject.extension.observe
 import com.harunkor.githubapisampleproject.utils.ClickListener
 import dagger.hilt.android.AndroidEntryPoint
 

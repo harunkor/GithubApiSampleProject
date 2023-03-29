@@ -8,6 +8,10 @@
             name="item"
             type="com.harunkor.githubapisampleproject.domain.model.user.User" />
 
+        <variable
+            name="backClickListener"
+            type="com.harunkor.githubapisampleproject.presentation.clicklistener.BackClickListener" />
+
 
     </data>
 
@@ -128,8 +132,8 @@
 
         <CheckBox
             android:id="@+id/favorite"
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_24sdp"
             android:layout_marginEnd="@dimen/_24sdp"
             android:button="@null"
@@ -137,6 +141,17 @@
             android:checked="@{item.isFavorite}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="16dp"
+            android:onClick="@{()->backClickListener.backButtonClick()}"
+            android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="@+id/favorite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/favorite" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.harunkor.githubapisampleproject.presentation.extension
+package com.harunkor.githubapisampleproject.extension
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

@@ -10,4 +10,6 @@
     <string name="email">E-mail: %1$s</string>
     <string name="followers">Followers: %1$s</string>
     <string name="following">Following: %1$s</string>
+    <string name="favorite">Favorite</string>
+    <string name="back">back</string>
 </resources>
